@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 960px;
+        }
+        .highlighted {
+            fill: red;
+            fill-opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script>
+            // Crear el mapa
+    const map = L.map('map').setView([20, 0], 2);  // Centrado y zoom inicial
+
+    // Añadir una capa base de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://dlopez.eu.org">Daniel López Pérez</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Mapa de códigos ISO 3166-1 alfa-3 a alfa-2
+    const isoAlpha3To2 = {
+        "ESP": "ES",
+        "GBR": "GB",
+        "AND": "AD",
+        "FRA": "FR"
+    };
+
+    // Función para resaltar los países
+    function highlightFeature(feature, layer) {
+        const highlightedCountries = ["ESP", "GBR", "AND", "FRA"];
+        if (highlightedCountries.includes(feature.id)) {
+            layer.setStyle({
+                fillColor: 'red',
+                fillOpacity: 0.7,
+                color: 'red'
+            });
+
+            // Añadir popup con el nombre del país y la bandera
+            layer.on('click', function(e) {
+                const countryName = feature.properties.name;
+                const countryCodeAlpha2 = isoAlpha3To2[feature.id];
+                const flagUrl = `https://flagcdn.com/w320/${countryCodeAlpha2.toLowerCase()}.png`;
+                const popupContent = `<b>${countryName}</b><br><img src="${flagUrl}" alt="Flag of ${countryName}" style="width: 100px;">`;
+                L.popup()
+                    .setLatLng(e.latlng)
+                    .setContent(popupContent)
+                    .openOn(map);
+            });
+        }
+    }
+
+    // Cargar datos GeoJSON y añadirlos al mapa
+    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then(function(world) {
+        L.geoJson(world, {
+            style: function(feature) {
+                return {
+                    fillColor: '#ccc',
+                    fillOpacity: 0.7,
+                    color: '#333',
+                    weight: 0.5
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                highlightFeature(feature, layer);
+            }
+        }).addTo(map);
+    });
+    </script>
+</body>
+</html>

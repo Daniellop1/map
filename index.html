@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=en-US&amp;apikey=2bdca8fe-06c7-4c55-b571-4c5a1641b8b7" type="text/javascript"></script>
+    <script type="text/javascript">
+	ymaps.ready(init);
+
+function init() {
+    var myMap = new ymaps.Map("map", {
+        center: [35.00, 1.00],
+        zoom: 4,
+        controls: ['zoomControl', 'fullscreenControl'],
+    });
+
+    myMap.copyrights.add('© Daniel López Pérez');
+    myMap.options.set('suppressMapOpenBlock', true);
+
+    myMap.geoObjects
+        .add(new ymaps.Placemark([60.7764, -148.6834], { 
+            balloonContentHeader: 'Whittier', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/whittier">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([40.0312, -76.3003], { 
+            balloonContentHeader: 'Centralia', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/centralia">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([7.6471, -77.3735], { 
+            balloonContentHeader: 'Tapón del Daríen', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/tapon-del-darien">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-3.7437, -73.2516], { 
+            balloonContentHeader: 'Iquitos', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/iquitos">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([71.2906, -156.7886], { 
+            balloonContentHeader: 'Utqiagvik', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/utqiagvik">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-0.9538, -90.9656], { 
+            balloonContentHeader: 'Islas Galápagos', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/galapagos">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-14.6306, -69.4469], { 
+            balloonContentHeader: 'La Rinconada', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/la-rinconada">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-27.1127, -109.3497], { 
+            balloonContentHeader: 'Rapa Nui', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/rapa-nui">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-24.376, -128.324], { 
+            balloonContentHeader: 'Islas Pitcairn', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/pitcairn">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-55.9833, -67.2667], { 
+            balloonContentHeader: 'Cabo de Hornos', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/cabo-de-hornos">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-3.8575, -32.4297], { 
+            balloonContentHeader: 'San Fernando de Noronha', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/fernando-de-noronha">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([51.4439, 4.9383], { 
+            balloonContentHeader: 'Baarle', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/baarle">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([51.897, 1.472], { 
+            balloonContentHeader: 'Sealand', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/sealand">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#D2042D' 
+        }))
+        .add(new ymaps.Placemark([62.0069, -6.7716], { 
+            balloonContentHeader: 'Islas Feroe', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/islas-feroe">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([78.2232, 15.6267], { 
+            balloonContentHeader: 'Svalbard', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/svalbard">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([46.975, 29.32], { 
+            balloonContentHeader: 'Transnistria', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/transnistria">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#D2042D' 
+        }))
+        .add(new ymaps.Placemark([39.13, 58.3833], { 
+            balloonContentHeader: 'Turkmenistán', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/turkmenistan">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([12.469, 53.8238], { 
+            balloonContentHeader: 'Socotra', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/socotra">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-0.9117, 33.9522], { 
+            balloonContentHeader: 'Islas Migingo', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/migingo">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([63.4641, -142.7891], { 
+            balloonContentHeader: 'Oimiakón', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/oimiakon">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([22.3193, 114.1694], { 
+            balloonContentHeader: 'Kowloon', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/kowloon">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([11.5423, 92.7537], { 
+            balloonContentHeader: 'Sentinel del Norte', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/sentinel">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([65.7667, -168.95], { 
+            balloonContentHeader: 'Islas Diómedes', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/diomedes">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-0.5228, 166.9315], { 
+            balloonContentHeader: 'Nauru', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/nauru">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-29.0133, 134.7541], { 
+            balloonContentHeader: 'Coober Pedy', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/coober-pedy">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-7.1095, 177.6493], { 
+            balloonContentHeader: 'Tuvalu', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/tuvalu">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([-15.3767, 166.9592], { 
+            balloonContentHeader: 'Vanuatu', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/vanuatu">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#blueStarCircleIcon', 
+            iconColor: '#097969' 
+        }))
+        .add(new ymaps.Placemark([43, 41.027778], { 
+            balloonContentHeader: 'Abkhazia', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/abkhazia">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#F1C40F' 
+        }))
+        .add(new ymaps.Placemark([42.225, 43.97], { 
+            balloonContentHeader: 'South Ossetia', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/ossetia">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#F1C40F' 
+        }))
+        .add(new ymaps.Placemark([9.55, 44.05], { 
+            balloonContentHeader: 'Somaliland', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/south_ossetia">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#D2042D' 
+        }))
+
+
+
+        .add(new ymaps.Placemark([35.183333, 33.366667], { 
+            balloonContentHeader: 'Northern Cyprus', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Northern_Cyprus">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#F1C40F' 
+        }))
+        .add(new ymaps.Placemark([42.666667, 21.166667], { 
+            balloonContentHeader: 'Kosovo', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/kosovo">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#F1C40F' 
+        }))
+        .add(new ymaps.Placemark([27.15, -13.2], { 
+            balloonContentHeader: 'Sahrawi Arab Democratic Republic', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Sahrawi_Arab_Democratic_Republic">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#F1C40F' 
+        }))
+        .add(new ymaps.Placemark([25.066667, 121.516667], { 
+            balloonContentHeader: 'Republic of China (Taiwan)', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Taiwan">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#F1C40F' 
+        }))
+
+        
+        .add(new ymaps.Placemark([47.159, 9.555], { 
+            balloonContentHeader: 'Principality of Liechtenstein', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Principality_of_Liechtenstein">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#0000FF' // Reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([19.8968, -155.5828], { 
+            balloonContentHeader: 'Hawaiian Kingdom', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Hawaiian_Kingdom">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([12.8654, -85.2072], { 
+            balloonContentHeader: 'Republic of Moskitia', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Moskitia">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([43.7333, 7.4167], { 
+            balloonContentHeader: 'Principality of Seborga', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Principality_of_Seborga">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([-25.2744, 133.7751], { 
+            balloonContentHeader: 'Hutt River Principality', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Principality_of_Hutt_River">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([37.7749, -122.4194], { 
+            balloonContentHeader: 'Republic of Molossia', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Republic_of_Molossia">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([40.7128, -74.0060], { 
+            balloonContentHeader: 'Conch Republic', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Conch_Republic">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }))
+        .add(new ymaps.Placemark([52.1951, 5.4210], { 
+            balloonContentHeader: 'Republic of Kugelmugel', 
+            balloonContent: '<a href="https://en.wikipedia.org/wiki/Republic_of_Kugelmugel">Wikipedia</a>' 
+        }, { 
+            preset: 'islands#governmentCircleIcon', 
+            iconColor: '#6F8FAF' // No reconocida internacionalmente
+        }));
+
+}
+	</script>
+	<style>
+        html, body, #map {
+            width: 100%; height: 95%; padding: 0; margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="well">
+        <h2>Worldwide OSINT tools map </h2>
+   <span style="color:#D2042D">&#8506;</span> — Countries recognized only by non-UN member states</br>
+   <span style="color:#F1C40F">&#8506;</span> — Countries recognized by at least one UN member state</br>
+   <span style="color:#0000FF">&#8506;</span> — Micronations with international recognition <br>
+   <span style="color:#6F8FAF">&#8506;</span> — Micronations with international recognition <br>
+   <span style="color:#097969">&#8506;</span> — Interesting places
+   
+   </div>
+<div id="map"></div>
+	
+</body>
+</html>
